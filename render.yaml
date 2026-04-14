@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: wecom-story-bot
+    env: node
+    region: singapore
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: BOT_ID
+        sync: false
+      - key: SECRET
+        sync: false
+      - key: FORM_URL
+        sync: false
+      - key: WEBSOCKET_URL
+        value: wss://openws.work.weixin.qq.com
